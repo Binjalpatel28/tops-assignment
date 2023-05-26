@@ -1,0 +1,71 @@
+{% extends "headerfooter.html" %}
+{% load static %}
+{% block content %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <!-- <span class="text-white">Don't have an account?</span> -->
+          <h1 class="text-capitalize mb-5 text-lg">Enter Your OTP</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3">+84 789 1256 </h2>
+          </div>
+      </div>
+
+      <div class="col-lg-8">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Enter Your OTP</h2>
+            <p style="font-size: 24; color: red;">{{msg}}</p>
+              <form class="appoinment-form" method="post" action="{% url 'forgot_otp' %}">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            
+                            <div class="form-group">
+                                <label>Enter OTP</label>
+                                    <input type="text" class="form-control" name="otp" >
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-main btn-round-full" >Verify OTP</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

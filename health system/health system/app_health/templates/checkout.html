@@ -1,0 +1,90 @@
+{% extends "headerfooter.html" %}
+{% load static %}
+{% block content %}
+
+<section class="page-title bg-1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block text-center">
+                    <span class="text-white">All Your Purchased Medicine</span>
+                    <h1 class="text-capitalize mb-6 text-lg">Cart</h1>
+
+                    <!-- <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">/</span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+            </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br>
+</br>
+
+<!-- <div class="page-banner-area bg-1">
+<div class="container">
+<div class="page-banner-content">
+<h1>Cart Page</h1>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li>Cart</li>
+</ul>
+</div>
+</div>
+</div>
+ -->
+
+<div class="cart-area pt-70 pb-45">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8">
+                <div class="sidebar-widget schedule-widget mb-10">
+                    <h3>Check Out Summary</h3>
+                    <ul>
+                        <!-- <li>Subtotal <span>$118.00</span></li> -->
+
+                        <li>Total <span>{{total}}</span></li>
+                        <li>Payble Total <span>{{total}}</span></li>
+                    </ul>
+                    <button type="button" id="pay-btn" class="btn btn-main btn-round-full">Proceed To payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+
+        // Enter the Key ID generated from the Dashboard
+        key: "rzp_test_02H9cCwpZBKsOQ",
+
+        // Amount is in currency subunits.
+        // Default currency is INR. Hence,
+        // 50000 refers to 50000 paise
+        amount: "{{ total }}"*100,
+        currency: "INR",
+
+        // Your/store name.
+        name: "Dj Razorpay",
+
+        // Pass the `id` obtained in the response of Step 1
+        order_id: "{{ razorpay_order_id }}",
+        callback_url: "{{ callback_url }}",
+    };
+
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    };
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "headerfooter.html" %}
+{% load static %}
+{% block content %}
+
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Create an Account?</span>
+          <h1 class="text-capitalize mb-5 text-lg">Register Here</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3">+84 789 1256 </h2>
+          </div>
+      </div>
+
+      <div class="col-lg-6">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Register</h2>
+            <p>{{msg}}</p>
+            <form class="appoinment-form" action="{% url 'register' %}" method="Post">
+              {% csrf_token %}
+            <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="fname">
+            </div>
+            <div class="form-group">
+            <label>Email *</label>
+            <input type="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+            <label>Contact</label>
+            <input type="Number" class="form-control" name="contact">
+            </div>
+            <div class="form-group">
+            <label>Date Of Birth</label>
+            <input type="date" class="form-control" name="dob">
+            </div>
+            <div class="form-group">
+              <label>City</label><br>
+              <select class="form-control" id="exampleFormControlSelect1">
+                  <option selected>--select City--</option>
+                  <option value="1">surat</option>
+                  <option value="2">vadodra</option>
+                  <option value="3">ahemdabad</option>
+                  <option value="4">rajkot</option>
+                  <option value="5">mumbai</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label>Password *</label>
+            <input type="password" class="form-control" name="pass">
+            </div>
+            <div class="form-group">
+            <label>Confirm Password *</label>
+            <input type="password" class="form-control" name="cpass">
+            </div>
+            <div class="form-group">
+            <ul class="d-flex justify-content-between">
+            
+            </ul>
+            </div>
+            <button class="btn btn-main btn-round-full" type="submit">Submit & Register</button>     
+            </form>
+            
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+            
+
+
+{% endblock %}
+
