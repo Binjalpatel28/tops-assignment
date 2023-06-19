@@ -254,7 +254,7 @@ def update_book(request,pk):
 def delete_book(request,pk):
         user_data =Book.objects.get(id=pk)
         user_data.delete()
-        return Book(request)
+        return book(request)
 
 class booklist(APIView):
     def get(self,request):
